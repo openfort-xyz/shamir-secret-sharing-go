@@ -1,5 +1,5 @@
 # Shamir's Secret Sharing
-[![Go](https://github.com/openfort-xyz/shamir-secret-sharing/actions/workflows/ci.yml/badge.svg)](https://github.com/openfort/shamir-secret-sharing/actions/workflows/ci.yml)
+[![Go](https://github.com/openfort-xyz/shamir-secret-sharing-go/actions/workflows/ci.yml/badge.svg)](https://github.com/openfort/shamir-secret-sharing/actions/workflows/ci.yml)
 [![Go Report Card](https://goreportcard.com/badge/go.openfort.xyz/shamir-secret-sharing)](https://goreportcard.com/report/go.openfort.xyz/shamir-secret-sharing)
 
 This project implements Shamir's Secret Sharing with zero dependency in Go. Shamir's Secret Sharing is a cryptographic algorithm that allows a secret to be divided into parts, giving each participant its own unique part. To reconstruct the secret, a minimum number of parts are needed. This implementation uses GF(256) arithmetic for secure and efficient operations.
