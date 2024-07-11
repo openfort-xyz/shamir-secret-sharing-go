@@ -1,15 +1,9 @@
 package sss
 
-import (
-	"errors"
-)
-
-var (
-	ErrInvalidThreshold = errors.New("invalid threshold")
-	ErrInvalidNumShares = errors.New("invalid number of shares")
-	ErrInvalidSecret    = errors.New("invalid secret")
-)
-
+// Split splits a secret into n shares with a threshold of threshold.
+// Threshold is the minimum number of shares required to reconstruct the secret. It must be at least 2 and at most 255.
+// n is the total number of shares to generate. It must be at least 2 and at most 255.
+// secret is the secret to split.
 func Split(n, threshold int, secret []byte) ([][]byte, error) {
 	if threshold < 2 || threshold > n || threshold > 255 {
 		return nil, ErrInvalidThreshold
@@ -44,6 +38,10 @@ func Split(n, threshold int, secret []byte) ([][]byte, error) {
 	return shares, nil
 }
 
+// Combine combines shares to reconstruct the secret.
+// Shares is a slice of shares to combine. It must be at least 2.
+// The secret is returned if the shares are valid.
+// There is no way to determine if the shares are valid or not, on case of not the secret will be incorrect.
 func Combine(shares [][]byte) ([]byte, error) {
 	if len(shares) < 2 {
 		return nil, ErrInvalidNumShares
