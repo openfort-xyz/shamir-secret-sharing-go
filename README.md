@@ -1,5 +1,5 @@
 # Shamir's Secret Sharing
-[![Go](https://github.com/openfort-xyz/shamir-secret-sharing-go/actions/workflows/ci.yml/badge.svg)](https://github.com/openfort/shamir-secret-sharing/actions/workflows/ci.yml)
+[![Go](https://github.com/openfort-xyz/shamir-secret-sharing-go/actions/workflows/ci.yml/badge.svg)](https://github.com/openfort-xyz/shamir-secret-sharing-go/actions/workflows/ci.yml)
 [![Go Report Card](https://goreportcard.com/badge/go.openfort.xyz/shamir-secret-sharing-go)](https://goreportcard.com/report/go.openfort.xyz/shamir-secret-sharing-go)
 [![Go Reference](https://pkg.go.dev/badge/go.openfort.xyz/shamir-secret-sharing-go.svg)](https://pkg.go.dev/go.openfort.xyz/shamir-secret-sharing-go)
 
