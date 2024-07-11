@@ -1,6 +1,6 @@
 # Shamir's Secret Sharing
 [![Go](https://github.com/openfort-xyz/shamir-secret-sharing-go/actions/workflows/ci.yml/badge.svg)](https://github.com/openfort/shamir-secret-sharing/actions/workflows/ci.yml)
-[![Go Report Card](https://goreportcard.com/badge/go.openfort.xyz/shamir-secret-sharing)](https://goreportcard.com/report/go.openfort.xyz/shamir-secret-sharing)
+[![Go Report Card](https://goreportcard.com/badge/go.openfort.xyz/shamir-secret-sharing-go)](https://goreportcard.com/report/go.openfort.xyz/shamir-secret-sharing-go)
 
 This project implements Shamir's Secret Sharing with zero dependency in Go. Shamir's Secret Sharing is a cryptographic algorithm that allows a secret to be divided into parts, giving each participant its own unique part. To reconstruct the secret, a minimum number of parts are needed. This implementation uses GF(256) arithmetic for secure and efficient operations.
 
@@ -9,7 +9,7 @@ This project implements Shamir's Secret Sharing with zero dependency in Go. Sham
 To install this package, you need to have [Go](https://golang.org/doc/install) installed on your machine.
 
 ```sh
-go get -u go.openfort.xyz/shamir-secret-sharing
+go get -u go.openfort.xyz/shamir-secret-sharing-go
 ```
 
 ## Usage
@@ -17,7 +17,7 @@ go get -u go.openfort.xyz/shamir-secret-sharing
 ### Import the package 
 ```go
 import (
-    "go.openfort.xyz/shamir-secret-sharing"
+    "go.openfort.xyz/shamir-secret-sharing-go"
 )
 ```
 
@@ -28,7 +28,7 @@ package main
 
 import (
     "fmt"
-    sss "go.openfort.xyz/shamir-secret-sharing"
+    sss "go.openfort.xyz/shamir-secret-sharing-go"
 )
 
 func main() {
