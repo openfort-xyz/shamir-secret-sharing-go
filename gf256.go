@@ -5,7 +5,7 @@ func gfAdd(x, y byte) byte {
 }
 
 func gfMul(x, y byte) byte {
-	var ret byte = 0
+	var ret byte
 	for i := 0; i < 8; i++ {
 		m := -(y & 1) & 0xff
 		ret ^= x & m
