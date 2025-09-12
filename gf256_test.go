@@ -66,31 +66,49 @@ func gfDivTable(x, y byte) byte {
 }
 
 func TestGfMul(t *testing.T) {
-	for i := 0; i < 255; i++ {
-		for j := 0; j < 255; j++ {
+	for i := 0; i < 256; i++ {
+		for j := 0; j < 256; j++ {
 			x := byte(i)
 			y := byte(j)
 			groundTruth := gfMulTable(x, y)
 			obtained := gfMul(x, y)
 
 			if groundTruth != obtained {
-				t.Errorf("expected: %02X\nobtained: %02X", groundTruth, obtained)
+				t.Fatalf("expected: %02X\nobtained: %02X", groundTruth, obtained)
 			}
 		}
 	}
 }
 
 func TestGfDiv(t *testing.T) {
-	for i := 0; i < 255; i++ {
-		for j := 1; j < 255; j++ {
+	for i := 0; i < 256; i++ {
+		for j := 1; j < 256; j++ {
 			x := byte(i)
 			y := byte(j)
 			groundTruth := gfDivTable(x, y)
 			obtained := gfDiv(x, y)
 
 			if groundTruth != obtained {
-				t.Errorf("expected: %02X\nobtained: %02X", groundTruth, obtained)
+				t.Fatalf("expected: %02X\nobtained: %02X", groundTruth, obtained)
 			}
 		}
 	}
+}
+
+func TestGfDiv_ZeroDiv(t *testing.T) {
+	defer func() {
+		if r := recover(); r == nil {
+			t.Fatalf("expected GfDiv to panic if y = 0, but function did not panic")
+		}
+	}()
+	gfDiv(1, 0)
+}
+
+func TestGfInv_Zero(t *testing.T) {
+	defer func() {
+		if r := recover(); r == nil {
+			t.Fatalf("expected GfInv to panic if y = 0, but function did not panic")
+		}
+	}()
+	gfInv(0)
 }
