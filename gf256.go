@@ -23,21 +23,17 @@ func gfInv(y byte) byte {
 	if y == 0 {
 		panic("division by zero")
 	}
-	y2 := gfMul(y, y)
-	y4 := gfMul(y2, y2)
-	y8 := gfMul(y4, y4)
-	y16 := gfMul(y8, y8)
-	y32 := gfMul(y16, y16)
-	y64 := gfMul(y32, y32)
-	y128 := gfMul(y64, y64)
 
-	ret := y128
-	ret = gfMul(ret, y64)
-	ret = gfMul(ret, y32)
-	ret = gfMul(ret, y16)
-	ret = gfMul(ret, y8)
-	ret = gfMul(ret, y4)
-	ret = gfMul(ret, y2)
+	yk := make([]byte, 8)
+	yk[0] = y
+	for i := 1; i < 8; i++ {
+		yk[i] = gfMul(yk[i-1], yk[i-1])
+	}
+
+	ret := yk[7]
+	for i := 6; i > 0; i-- {
+		ret = gfMul(ret, yk[i])
+	}
 	return ret
 }
 
