@@ -4,6 +4,9 @@ func gfAdd(x, y byte) byte {
 	return x ^ y
 }
 
+// gfMul is pretty much openSSL's "xtime" function
+// in aes_core.c
+// but for single bytes instead of quadruplets
 func gfMul(x, y byte) byte {
 	var ret byte
 	for i := 0; i < 8; i++ {
@@ -19,6 +22,8 @@ func gfMul(x, y byte) byte {
 	return ret
 }
 
+// gfInv computes the inverse by computing y ** 254
+// (y ** (pn - 1)) is always the inverse in any GF(p**n)
 func gfInv(y byte) byte {
 	if y == 0 {
 		panic("division by zero")
@@ -37,6 +42,8 @@ func gfInv(y byte) byte {
 	return ret
 }
 
+// gfDiv computes the division by computing
+// x * inv(y)
 func gfDiv(x, y byte) byte {
 	return gfMul(x, gfInv(y))
 }
